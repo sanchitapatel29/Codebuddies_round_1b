@@ -1,0 +1,21 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Output & data folders (these should be mounted as volumes)
+outputs/
+pdfs/
+
+# Virtual environment (if you use one)
+venv/
+.venv/
