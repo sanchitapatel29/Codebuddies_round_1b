@@ -3,7 +3,7 @@ from create_metadata import create_input_json
 import os
 
 def wait_for_pdf_upload(pdf_dir):
-    print("📂 Please upload your PDF files into the 'pdfs/' folder.")
+    print("📂 Please upload your PDF files into the 'app/pdfs/' folder.")
     input("✅ Press Enter once you have finished uploading the PDFs...")
 
     if not os.path.exists(pdf_dir):
@@ -13,7 +13,7 @@ def wait_for_pdf_upload(pdf_dir):
         exit(1)
 
 if __name__ == "__main__":
-    PDF_DIR = "pdfs"
+    PDF_DIR = "app/pdfs"
     wait_for_pdf_upload(PDF_DIR)
 
     # Step 1: Generating input JSON from metadata
@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # Step 2: Running the fulfill_job pipeline
     fulfill_job(
-        input_json_path="outputs/input.json",
+        input_json_path="/app/outputs/input.json",
         pdf_dir=PDF_DIR,
-        output_path="outputs/output.json"
+        output_path="/app/outputs/output.json"
     )

@@ -1,21 +1,17 @@
 {
     "challenge_info": {
-        "challenge_id": "round_1b_6322",
+        "challenge_id": "round_1b_9635",
         "test_case_name": "travel_planner",
         "description": "Travel planner"
     },
     "documents": [
         {
-            "filename": "South of France - Cities.pdf",
-            "title": "South of France - Cities"
+            "filename": "South of France - History.pdf",
+            "title": "South of France - History"
         },
         {
             "filename": "South of France - Cuisine.pdf",
             "title": "South of France - Cuisine"
-        },
-        {
-            "filename": "South of France - History.pdf",
-            "title": "South of France - History"
         },
         {
             "filename": "South of France - Restaurants and Hotels.pdf",
@@ -26,12 +22,16 @@
             "title": "South of France - Things to Do"
         },
         {
-            "filename": "South of France - Tips and Tricks.pdf",
-            "title": "South of France - Tips and Tricks"
-        },
-        {
             "filename": "South of France - Traditions and Culture.pdf",
             "title": "South of France - Traditions and Culture"
+        },
+        {
+            "filename": "South of France - Cities.pdf",
+            "title": "South of France - Cities"
+        },
+        {
+            "filename": "South of France - Tips and Tricks.pdf",
+            "title": "South of France - Tips and Tricks"
         }
     ],
     "persona": {

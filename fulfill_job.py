@@ -7,10 +7,11 @@ from sentence_transformers import SentenceTransformer, util
 import unicodedata
 import re
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["HF_HUB_OFFLINE"] = "1"
 
-from sentence_transformers import SentenceTransformer, util
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("/app/models/all-MiniLM-L6-v2")
+
 
 def filter_relevant_paragraphs(text: str, task: str, threshold: float = 0.2) -> str:
     import re
@@ -37,7 +38,7 @@ def filter_relevant_paragraphs(text: str, task: str, threshold: float = 0.2) -> 
         return "\n\n".join(block for _, block in relevant_blocks[:3])
     else:
         blocks.sort(key=len, reverse=True)
-        return "\n\n".join(blocks[:2])  # fallback to top 2 longest blocks
+        return "\n\n".join(blocks[:2])
 
 
 def remove_headings(text: str) -> str:
@@ -66,11 +67,11 @@ def clean_text(text: str) -> str:
     text = unicodedata.normalize("NFKD", text)
 
     # Fix common split-word artifacts like "space -themed", "pr ehistoric"
-    text = re.sub(r'(\w+)\s*-\s*(\w+)', r'\1-\2', text)  # keep hyphenated words joined
+    text = re.sub(r'(\w+)\s*-\s*(\w+)', r'\1-\2', text) 
     text = re.sub(r'(\w+)\s+([a-z])', lambda m: m.group(1) + m.group(2) if len(m.group(1)) <= 2 else m.group(0), text)
 
     # Replace • or \u2022 with hyphen bullets
-    text = text.replace("\u2022", "-")
+    text = text.replace("\u2022", "")
 
     # Replace multiple newlines with one
     text = re.sub(r'\n{2,}', '\n', text)
