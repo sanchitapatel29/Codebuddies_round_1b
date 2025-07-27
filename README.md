@@ -74,8 +74,8 @@ python3.10 --version
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/persona-doc-intelligence.git
-cd persona-doc-intelligence
+git clone https://github.com/sanchitapatel29/Codebuddies_round_1b.git
+cd Codebuddies_round_1b
 ```
 
 ### 3. Create a Virtual Environment
