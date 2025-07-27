@@ -21,7 +21,7 @@ The entire solution runs offline using lightweight models and CPU, making it sui
 ## 📂 Step-by-Step Methodology
 
 ### 1. 🗂 Document Ingestion
-The user uploads 3–10 PDFs into the `pdfs/` folder. The system prompts for the persona and job-to-be-done, infers titles from filenames, auto-generates metadata (including `challenge_id`, `test_case_name`, and `description`), and saves everything in `input.json` for downstream processing.
+The user uploads 3–10 PDFs into the `app/pdfs/` folder. The system prompts for the persona and job-to-be-done, infers titles from filenames, auto-generates metadata (including `challenge_id`, `test_case_name`, and `description`), and saves everything in `input.json` for downstream processing.
 
 ### 2. 📄 Text Extraction (Using PyMuPDF)
 Each PDF is parsed page-by-page using PyMuPDF, chosen for its superior layout-aware text extraction. We extract paragraph-level text blocks while preserving page numbers and document references. This forms the raw pool of candidate sections.
