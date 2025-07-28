@@ -2,17 +2,17 @@
 
 ## 🎯 Problem Understanding
 
-The challenge requires building a *CPU-only, offline document intelligence system* that extracts and prioritizes the most relevant sections from a collection of PDFs. The extraction must be guided by a defined *persona* and *job need to be done*. The system must be versatile, handling diverse document types such as research papers, reports, educational content, etc., and should complete processing within 60 seconds for 3–5 PDFs, with a model size ≤ 1GB.
+The challenge requires building a CPU-only, offline document intelligence system that extracts and prioritizes the most relevant sections from a collection of PDFs. The extraction must be guided by a defined persona and job need to be done. The system must be versatile, handling diverse document types such as research papers, reports, educational content, etc., and should complete processing within 60 seconds for 3–5 PDFs, with a model size ≤ 1GB.
 
 ---
 
 ## 🛠 Solution Overview
 
-Our solution uses a modular *offline NLP pipeline* that fulfills the required tasks through the following core stages:
+Our solution uses a modular offline NLP pipeline that fulfills the required tasks through the following core stages:
 
-1. *PDF Parsing & Chunking (PyMuPDF)*  
-2. *Semantic Relevance Ranking (Sentence-Transformers)*  
-3. *Structured Output Generation (as per JSON schema)*
+1. PDF Parsing & Chunking (PyMuPDF)
+2. Semantic Relevance Ranking (Sentence-Transformers) 
+3. Structured Output Generation (as per JSON schema)
 
 The entire solution runs offline using lightweight models and CPU, making it suitable for low-resource environments.
 
@@ -55,15 +55,8 @@ The format strictly follows the schema in `challenge1b_output.json`.
 
 ## ✅ Why This Works Well
 
-- Uses *semantic understanding* to detect relevant sections, not just keywords.
-- Enforces *diversity* in selection to avoid overfitting to single documents.
-- Fully meets the constraints: *offline*, **CPU-only**, **≤1GB model**, **<60s run time**.
+- Uses semantic understanding to detect relevant sections, not just keywords.
+- Enforces diversity in selection to avoid overfitting to single documents.
+- Fully meets the constraints: **offline**, **CPU-only**, **≤1GB model**, **<60s run time**.
 
----
 
-## 🚀 Future Enhancements
-
-- Further improving the functionality of the model
-- Add GUI or web UI using Streamlit for ease of interaction
-
----
