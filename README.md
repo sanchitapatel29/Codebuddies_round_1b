@@ -52,6 +52,7 @@ project-root/
 ├── rank_sections.py     # Embedding + semantic scoring
 ├── run.py               # End-to-end pipeline launcher
 ├── requirements.txt     # Python dependencies
+├── Dockerfile
 └── approach_explanation.md
 ```
 
@@ -61,14 +62,13 @@ Follow these steps to set up and run the project locally in an isolated environm
 
 ---
 
-### 1. Prerequisite: Install Python 3.10
+### 1. Prerequisite: Install Docker
+Ensure Docker is installed and running on your system.
 
-Make sure Python 3.10 is installed on your machine.
-
-- 🔗 [Download Python 3.10](https://www.python.org/downloads/release/python-3100/)
-- Confirm installation:
+- 🔗 [Download Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+- Verify Installation:
 ```bash
-python3.10 --version
+docker --version
 ```
 
 ### 2. Clone the Repository
@@ -78,30 +78,13 @@ git clone https://github.com/sanchitapatel29/Codebuddies_round_1b.git
 cd Codebuddies_round_1b
 ```
 
-### 3. Create a Virtual Environment
-
-On Windows: 
+### 3. Build the Docker Image
 ```bash
-py -3.10 -m venv .venv
-.venv\Scripts\activate
+docker build -t codebuddies2 .
 ```
-On macOS/Linux: 
-```bash
-python3.10 -m venv .venv
-source .venv/bin/activate
-```
+This will take several minutes on the first build (approx 50 - 60 minutes)
 
-### 4. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-⚠️ If tokenizers fails, try:
-```bash
-pip install tokenizers==0.13.2 --prefer-binary
-```
-
-### 5. Add Input PDFs
+### 4. Add Input PDFs
 
 Place your .pdf files inside the following folder:
 ```bash
@@ -109,12 +92,15 @@ app/pdfs/
 ```
 If it doesn’t exist, create it manually.
 
-### 6. Run the Project
-
-Place your .pdf files inside the following folder:
+### 5. Run the container
 ```bash
-python run.py
+docker run --rm -it `
+  -v "${PWD}\app\pdfs:/app/pdfs" `
+  -v "${PWD}\app\outputs:/app/outputs" `
+  --network none `
+  codebuddies2
 ```
+
 This script will:
 - Prompt for persona and job-to-be-done
 - Generate:
