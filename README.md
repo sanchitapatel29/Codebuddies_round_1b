@@ -53,6 +53,7 @@ project-root/
 ├── run.py               # End-to-end pipeline launcher
 ├── requirements.txt     # Python dependencies
 ├── Dockerfile
+├── README.md
 └── approach_explanation.md
 ```
 
@@ -110,4 +111,5 @@ This script will:
 
 
 🎉 You're Ready to Go!
+
 Your offline, CPU-friendly NLP pipeline will extract, rank, and refine the most relevant sections based on your specified persona and task.
